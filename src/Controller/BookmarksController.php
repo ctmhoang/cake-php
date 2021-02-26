@@ -26,6 +26,11 @@ class BookmarksController extends AppController
         $this->set(compact('bookmarks'));
     }
 
+    public function export()
+    {
+        $this->set('bookmarks', $this->Bookmarks->find());
+    }
+
     /**
      * View method
      *
