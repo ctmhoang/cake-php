@@ -5,6 +5,10 @@
 * Naming Convention
     * Controller
         * lowercase pluralized name + Controller
+        * function name is lower camel case
+        * Callback
+            * beforeRender
+            * beforeFilter
     * Model
         * Table
             * lowercase pluralized name + Table
