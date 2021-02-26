@@ -7,8 +7,8 @@
         * lowercase pluralized name + Controller
         * function name is lower camel case
         * Callback
-            * beforeRender
-            * beforeFilter
+            * beforeRender Logic
+            * beforeFilter Controller Method
         * Redirect keys
             * controller
             * action
@@ -23,3 +23,51 @@
         * Primary Key : `id`
         * Foreign Key: name of foreign obj singular + `_id`
         * Other column not have any particular pattern beyond lower case and using underscores to separate words
+
+## Cycle
+
+1. request
+2. index.php root => request? response => dispatcher
+3. App Controller
+    * load helper
+    * snippet of codes
+    * callback
+4. Concreted Controller
+    * call method
+5. View Action
+
+## Controller
+* Extends AppController
+* Object
+    * ORM Objects
+        * newEntity()
+            * patchEntity
+        * find (or use Dynamic)
+        * limit
+    * Flash (FlashMessage)
+        * success | error
+    * RequestHandler
+    * request
+        * is('post')
+        * getData() [POST]
+* Methods
+    * para method
+        * tacked on into url
+    * index (dir root of controller)
+    * redirect(['action' => methodName, 'controller' => pluralizedEntityName])
+    * __() i18n method
+    * set () => AppView
+    * set(para) => varName
+* Pagination
+    * init
+        * paginate(DS) set to view
+        * loop over
+    * in view call Paginator->sort from Appview
+    * Methods
+        * prev(string)
+        * numbers
+        * next(String)
+        * counter
+    * default config paginate
+        * overwrite `$paginate` array
+            * order => ['nameOfAttribute' => ASC|DESC]
