@@ -43,6 +43,9 @@
         * newEntity()
             * patchEntity
         * find (or use Dynamic)
+        * get($id, optional args []) ( find method by a primary key)
+            * if not existed throw http error code 404
+            * contains => ['ModelName',...]
         * limit
     * Flash (FlashMessage)
         * success | error
@@ -71,3 +74,17 @@
     * default config paginate
         * overwrite `$paginate` array
             * order => ['nameOfAttribute' => ASC|DESC]
+
+## Model
+* Association
+    * Optional Props
+        * If ClassName != Asso Name => className props
+        * foreignKey
+    * hasOne ('Assoc Name')
+    * belongTo
+    * hasMany
+    * belongToMany
+        * joined table alpha_name_spec_by_uc
+        * `targetForeignKey`
+        * `joinTable`
+
