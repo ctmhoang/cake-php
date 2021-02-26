@@ -9,6 +9,9 @@
         * Callback
             * beforeRender
             * beforeFilter
+        * Redirect keys
+            * controller
+            * action
     * Model
         * Table
             * lowercase pluralized name + Table

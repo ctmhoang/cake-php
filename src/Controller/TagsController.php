@@ -11,6 +11,8 @@ namespace App\Controller;
  */
 class TagsController extends AppController
 {
+    public $paginate = ['order' => ['Tags.name' => 'asc']];
+
     /**
      * Index method
      *
@@ -52,7 +54,7 @@ class TagsController extends AppController
             if ($this->Tags->save($tag)) {
                 $this->Flash->success(__('The tag has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'Bookmarks','action' => 'index']);
             }
             $this->Flash->error(__('The tag could not be saved. Please, try again.'));
         }
