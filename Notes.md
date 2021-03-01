@@ -136,3 +136,18 @@
     * _set|getPropertyName use multi bytes string
 * hidend field = $_hidden=[]
 * accessible [] bool
+
+## View
+* View Class
+    * AppView
+* Rendering Class
+
+* Cycle
+    * Return
+        * Cake Network res class (redirect)
+        * Cake Network Exc class
+    * If not render call view class
+    * AppView Init and Helper load
+    * Layout call and render
+    * Send to user
+
