@@ -47,7 +47,7 @@
         * where(args) conditions in array kvp
         * contain(args) like where
             * Can modified with anon func
-        * get($id, optional args []) ( find method by a primary key)
+        * get($id, optional args []) ( find method by a primary key) => throw excep
             * if not existed throw http error code 404
             * contains => ['ModelName',...]
         * limit
@@ -84,6 +84,7 @@
     * Optional Props
         * If ClassName != Asso Name => className props
         * foreignKey
+        * dependent (cascading del/up)
     * hasOne ('Assoc Name')
     * belongTo
     * hasMany
@@ -101,10 +102,11 @@
     * form helper class
 * print input field
     * input('field_name', [args])
-      * options
+      * options _tables
       * empty
 * associated attribute tables._attribute name
 * button(submit)
 * end()
 * Update need to check
     * request->is(['patch', 'post', 'put'])
+    * or use allowMethod
