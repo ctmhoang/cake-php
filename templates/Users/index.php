@@ -14,7 +14,7 @@
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('email') ?></th>
                     <th><?= $this->Paginator->sort('password') ?></th>
-                    <th><?= $this->Paginator->sort('firstname') ?></th>
+                    <th><?= $this->Paginator->sort('Name') ?></th>
                     <th><?= $this->Paginator->sort('lastname') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
@@ -27,7 +27,7 @@
                     <td><?= $this->Number->format($user->id) ?></td>
                     <td><?= h($user->email) ?></td>
                     <td><?= h($user->password) ?></td>
-                    <td><?= h($user->firstname) ?></td>
+                    <td><?= h($user->name) ?></td>
                     <td><?= h($user->lastname) ?></td>
                     <td><?= h($user->created) ?></td>
                     <td><?= h($user->modified) ?></td>

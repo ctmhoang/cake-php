@@ -32,4 +32,9 @@ class Tag extends Entity
         'modified' => true,
         'bookmarks' => true,
     ];
+
+    protected function _setName($name)
+    {
+        return mb_strtolower($name);
+    }
 }

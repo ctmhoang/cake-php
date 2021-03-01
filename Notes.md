@@ -128,3 +128,11 @@
 * Stateful(SAVE)
     * buildRules
         * add($rules -> isUnique(['field'']))
+
+## Entity
+* lazy loading???
+* call entity method need to set first in controller via paginate array
+* magic getset (protected)
+    * _set|getPropertyName use multi bytes string
+* hidend field = $_hidden=[]
+* accessible [] bool

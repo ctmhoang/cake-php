@@ -47,4 +47,9 @@ class User extends Entity
     protected $_hidden = [
         'password',
     ];
+
+    protected function _getName(): string
+    {
+        return $this->firstname . ' ' . $this->lastname;
+    }
 }
