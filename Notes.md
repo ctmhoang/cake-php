@@ -43,6 +43,9 @@
         * newEntity()
             * patchEntity
         * find (or use Dynamic)
+        * where(args) conditions in array kvp
+        * contain(args) like where
+            * Can modified with anon func
         * get($id, optional args []) ( find method by a primary key)
             * if not existed throw http error code 404
             * contains => ['ModelName',...]
@@ -88,3 +91,6 @@
         * `targetForeignKey`
         * `joinTable`
 
+## Entity
+* Methods
+    *has()

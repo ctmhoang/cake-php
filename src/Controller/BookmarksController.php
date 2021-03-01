@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\ORM\Query;
+
 /**
  * Bookmarks Controller
  *
@@ -26,9 +28,10 @@ class BookmarksController extends AppController
         $this->set(compact('bookmarks'));
     }
 
-    public function export( string $limit = '100'): void
+    public function export(string $limit = '100'): void
     {
-        $this->set('bookmarks', $this->Bookmarks->find()->limit($limit));
+        $this->set('bookmarks', $this->Bookmarks->find()->limit($limit)->where(['user_id' => 1])
+            ->contain(['Tags' => fn(Query $q): Query => $q->where(["Tags.name LIKE" => '%t%'])]))
     }
 
     /**
