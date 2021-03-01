@@ -31,7 +31,7 @@ class BookmarksController extends AppController
     public function export(string $limit = '100'): void
     {
         $this->set('bookmarks', $this->Bookmarks->find()->limit($limit)->where(['user_id' => 1])
-            ->contain(['Tags' => fn(Query $q): Query => $q->where(["Tags.name LIKE" => '%t%'])]))
+            ->contain(['Tags' => fn(Query $q): Query => $q->where(["Tags.name LIKE" => '%t%'])]));
     }
 
     /**

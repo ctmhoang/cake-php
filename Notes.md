@@ -40,8 +40,9 @@
 * Extends AppController
 * Object
     * ORM Objects
-        * newEntity()
-            * patchEntity
+        * newEntity() \ newEmptyEntity
+            * patchEntity (request->data)
+            * save() : boolean
         * find (or use Dynamic)
         * where(args) conditions in array kvp
         * contain(args) like where
@@ -94,3 +95,16 @@
 ## Entity
 * Methods
     *has()
+
+## View
+* this->Form->create($bookmark)
+    * form helper class
+* print input field
+    * input('field_name', [args])
+      * options
+      * empty
+* associated attribute tables._attribute name
+* button(submit)
+* end()
+* Update need to check
+    * request->is(['patch', 'post', 'put'])
