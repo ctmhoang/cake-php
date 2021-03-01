@@ -10,23 +10,25 @@
     <div class="table-responsive">
         <table>
             <thead>
-                <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('user_id') ?></th>
-                    <th><?= $this->Paginator->sort('title') ?></th>
-                    <th><?= $this->Paginator->sort('url') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
-                    <th><?= $this->Paginator->sort('modified') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
-                </tr>
+            <tr>
+                <th><?= $this->Paginator->sort('id') ?></th>
+                <th><?= $this->Paginator->sort('user_id') ?></th>
+                <th><?= $this->Paginator->sort('title') ?></th>
+                <th><?= $this->Paginator->sort('url') ?></th>
+                <th># of tags</th>
+                <th><?= $this->Paginator->sort('created') ?></th>
+                <th><?= $this->Paginator->sort('modified') ?></th>
+                <th class="actions"><?= __('Actions') ?></th>
+            </tr>
             </thead>
             <tbody>
-                <?php foreach ($bookmarks as $bookmark): ?>
+            <?php foreach ($bookmarks as $bookmark): ?>
                 <tr>
                     <td><?= $this->Number->format($bookmark->id) ?></td>
                     <td><?= $bookmark->has('user') ? $this->Html->link($bookmark->user->id, ['controller' => 'Users', 'action' => 'view', $bookmark->user->id]) : '' ?></td>
                     <td><?= h($bookmark->title) ?></td>
                     <td><?= h($bookmark->url) ?></td>
+                    <td><?= h($bookmark->numberOfTags()) ?></td>
                     <td><?= h($bookmark->created) ?></td>
                     <td><?= h($bookmark->modified) ?></td>
                     <td class="actions">
@@ -35,7 +37,7 @@
                         <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $bookmark->id], ['confirm' => __('Are you sure you want to delete # {0}?', $bookmark->id)]) ?>
                     </td>
                 </tr>
-                <?php endforeach; ?>
+            <?php endforeach; ?>
             </tbody>
         </table>
     </div>
