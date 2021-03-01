@@ -6,6 +6,7 @@ namespace App\Model\Table;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
+use Cake\Validation\Validation;
 use Cake\Validation\Validator;
 
 /**
@@ -74,13 +75,15 @@ class BookmarksTable extends Table
             ->scalar('title')
             ->maxLength('title', 255)
             ->requirePresence('title', 'create')
-            ->notEmptyString('title');
+            ->notEmptyString('title')
+            ->add('title', 'notUrl', ['rule' => fn($v, array $c) => !Validation::url($v)]);
 
         $validator
             ->scalar('url')
             ->maxLength('url', 255)
             ->requirePresence('url', 'create')
-            ->notEmptyString('url');
+            ->notEmptyString('url')
+            ->add('url', ['url' => ['rule' => ['url']]]);
 
         return $validator;
     }

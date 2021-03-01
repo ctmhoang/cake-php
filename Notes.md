@@ -37,6 +37,7 @@
 5. View Action
 
 ## Controller
+
 * Extends AppController
 * Object
     * ORM Objects
@@ -80,6 +81,7 @@
             * order => ['nameOfAttribute' => ASC|DESC]
 
 ## Model
+
 * Association
     * Optional Props
         * If ClassName != Asso Name => className props
@@ -94,19 +96,35 @@
         * `joinTable`
 
 ## Entity
+
 * Methods
-    *has()
+  *has()
 
 ## View
+
 * this->Form->create($bookmark)
     * form helper class
 * print input field
     * input('field_name', [args])
-      * options _tables
-      * empty
+        * options _tables
+        * empty
 * associated attribute tables._attribute name
 * button(submit)
 * end()
 * Update need to check
     * request->is(['patch', 'post', 'put'])
     * or use allowMethod
+
+## Validation
+
+* Stateless (PATH|NEW)
+    * ValidationDefault
+        * integer('field') / email / notEmpty /scala
+        * allowEmpty('field','proc') / requirePresence , maxLength/min, setStopOnFailure
+        * add(field,name,[rules])
+            * last
+            * provider (table)
+            * message
+* Stateful(SAVE)
+    * buildRules
+        * add($rules -> isUnique(['field'']))
