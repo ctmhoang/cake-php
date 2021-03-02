@@ -179,3 +179,24 @@
   `this->HTML->charset()`
     * meta
     * css
+
+## Component
+* Load `loadComponent('name',[args for call])`
+    * Cookie expiry => 1
+
+* Loaded to property of instance of controller
+* Get access to Controller via _registry
+* Custom comp
+    * Assign property of array $components need access to
+
+* Core
+    * Cookie
+    * Authentication
+    * CSRF
+    * Security
+    * Pagination
+    * RequestHandler (API)
+    * Flash
+        * __call and __set call [element](###Element)
+
+

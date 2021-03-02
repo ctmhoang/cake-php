@@ -21,6 +21,9 @@ class BookmarksController extends AppController
     public function index()
     {
 //        $this->viewBuilder()->setLayout('ajax');
+//        $this->Flash->default('default');
+//        $this->Flash->error('error');
+
         $this->paginate = [
             'contain' => ['Users','Tags'],
         ];
