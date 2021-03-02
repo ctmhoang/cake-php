@@ -54,6 +54,7 @@
         * limit
     * Flash (FlashMessage)
         * success | error
+        * render - Display
     * RequestHandler
     * request
         * is('post')
@@ -162,9 +163,19 @@
 ### Block
 
 * Placeholder to fill-in
-* Use layout = `this->layout =fileName`
+* Use layout = `this->layout =fileName` in view or `this->viewBuilder()->layout` in Controller
+  * ViewBuilder is method enable return the class that eventually build view class
 * Create view block `this->fetch('varName'`
 * Fill in
     * Append
     * Prepend
     * Assign
+
+* Special Content view block
+
+### Layout
+
+* apply charset utf-8 default
+  `this->HTML->charset()`
+    * meta
+    * css
