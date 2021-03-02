@@ -213,4 +213,20 @@
 * Bake it take Query and array
 * Custom method need a first word as action name
 
+## Helper (Logic on View Layer WTF ???)
 
+* init in init method `loadHelper(name,args`
+* alias using className prop
+* call like behavior
+
+* Standard
+    * Flash
+        * render
+    * Form
+    * HTML
+    * Number
+    * Paginator
+    * RSS
+    * Text
+    * Time
+    * URL
