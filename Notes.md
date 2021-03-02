@@ -198,5 +198,5 @@
     * RequestHandler (API)
     * Flash
         * __call and __set call [element](###Element)
-
+* Bake a component using cake
 

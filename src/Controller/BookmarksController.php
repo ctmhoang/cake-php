@@ -3,20 +3,36 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Model\Entity\Bookmark;
+use App\Model\Table\BookmarksTable;
+use Cake\Datasource\Exception\RecordNotFoundException;
+use Cake\Datasource\RepositoryInterface;
+use Cake\Datasource\ResultSetInterface;
+use Cake\Http\Response;
 use Cake\ORM\Query;
+
 
 /**
  * Bookmarks Controller
  *
- * @property \App\Model\Table\BookmarksTable $Bookmarks
- * @method \App\Model\Entity\Bookmark[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @property BookmarksTable $Bookmarks
+ * @property Component\ValidateComponent Validate
+ * @method Bookmark[]|ResultSetInterface paginate($object = null, array $settings = [])
  */
 class BookmarksController extends AppController
 {
+
+
+    public function initialize(): void
+    {
+        parent::initialize();
+        $this->loadComponent('Validate');
+    }
+
     /**
      * Index method
      *
-     * @return \Cake\Http\Response|null|void Renders view
+     * @return Response|null|void Renders view
      */
     public function index()
     {
@@ -25,15 +41,16 @@ class BookmarksController extends AppController
 //        $this->Flash->error('error');
 
         $this->paginate = [
-            'contain' => ['Users','Tags'],
+            'contain' => ['Users', 'Tags'],
         ];
         $bookmarks = $this->paginate($this->Bookmarks);
 
         $this->set(compact('bookmarks'));
     }
 
-    public function export(string $limit = '100'): void
+    public function export(string $limit): void
     {
+        $limit = $this->Validate->validLimit($limit, 100);
         $this->set('bookmarks', $this->Bookmarks->find()->limit($limit)->where(['user_id' => 1])
             ->contain(['Tags' => fn(Query $q): Query => $q->where(["Tags.name LIKE" => '%t%'])]));
     }
@@ -42,8 +59,8 @@ class BookmarksController extends AppController
      * View method
      *
      * @param string|null $id Bookmark id.
-     * @return \Cake\Http\Response|null|void Renders view
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     * @return Response|null|void Renders view
+     * @throws RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
@@ -57,7 +74,7 @@ class BookmarksController extends AppController
     /**
      * Add method
      *
-     * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
+     * @return Response|null|void Redirects on successful add, renders view otherwise.
      */
     public function add()
     {
@@ -80,8 +97,8 @@ class BookmarksController extends AppController
      * Edit method
      *
      * @param string|null $id Bookmark id.
-     * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     * @return Response|null|void Redirects on successful edit, renders view otherwise.
+     * @throws RecordNotFoundException When record not found.
      */
     public function edit($id = null)
     {
@@ -106,8 +123,8 @@ class BookmarksController extends AppController
      * Delete method
      *
      * @param string|null $id Bookmark id.
-     * @return \Cake\Http\Response|null|void Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     * @return Response|null|void Redirects to index.
+     * @throws RecordNotFoundException When record not found.
      */
     public function delete($id = null)
     {
