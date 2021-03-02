@@ -230,3 +230,14 @@
     * Text
     * Time
     * URL
+
+* Bake and use viewer like Component
+
+## Utils
+
+* Hash (x-path style string ????)
+    * Hash::get(data, path, default) (default)
+    * Hash::extract (data, path) (array of vals)
+    * Hash::format (data, path, format)
+    * Hash::check(data,path)
+    * Hash::reduce(data,path,fn)

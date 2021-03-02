@@ -1,4 +1,8 @@
 <?php
+
+use Cake\Utility\Hash;
+use Cake\Utility\Text;
+
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Bookmark $bookmark
@@ -44,6 +48,10 @@ $this->append('title', 'Bookmark');
                 <tr>
                     <th><?= __('Modified') ?></th>
                     <td><?= h($bookmark->modified) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Tags') ?></th>
+                    <td><?= Text::toList(Hash::extract($bookmark, 'tags.{n}.name')) ?></td>
                 </tr>
             </table>
             <div class="related">
