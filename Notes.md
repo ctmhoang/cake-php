@@ -164,7 +164,7 @@
 
 * Placeholder to fill-in
 * Use layout = `this->layout =fileName` in view or `this->viewBuilder()->layout` in Controller
-  * ViewBuilder is method enable return the class that eventually build view class
+    * ViewBuilder is method enable return the class that eventually build view class
 * Create view block `this->fetch('varName'`
 * Fill in
     * Append
@@ -181,6 +181,7 @@
     * css
 
 ## Component
+
 * Load `loadComponent('name',[args for call])`
     * Cookie expiry => 1
 
@@ -199,4 +200,17 @@
     * Flash
         * __call and __set call [element](###Element)
 * Bake a component using cake
+
+## Behavior (Mixin)
+
+* `addBehavior(name,args)`
+* Tie to event sys to call or use like component
+* Standard
+    * CounterCache
+    * TimeStamp
+    * Translate
+    * Tree (sub-cat)
+* Bake it take Query and array
+* Custom method need a first word as action name
+
 
