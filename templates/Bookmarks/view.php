@@ -3,6 +3,9 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Bookmark $bookmark
  */
+$this->assign('title', $bookmark->title);
+$this->prepend('title', 'View');
+$this->append('title', 'Bookmark');
 ?>
 <div class="row">
     <aside class="column">

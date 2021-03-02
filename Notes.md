@@ -130,6 +130,7 @@
         * add($rules -> isUnique(['field'']))
 
 ## Entity
+
 * lazy loading???
 * call entity method need to set first in a controller via paginate array
 * magic getset (protected)
@@ -138,6 +139,7 @@
 * accessible [] bool
 
 ## View
+
 * View Class
     * AppView
 * Rendering Class
@@ -152,6 +154,17 @@
     * Send to user
 
 ### Element
+
 * Simple snippets of code can reused not involved with complx logic
     * Add to element and a folder
     * call in view by `this->element('folder/snipName',[required args]')`
+
+### Block
+
+* Placeholder to fill-in
+* Use layout = `this->layout =fileName`
+* Create view block `this->fetch('varName'`
+* Fill in
+    * Append
+    * Prepend
+    * Assign
