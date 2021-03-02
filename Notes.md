@@ -131,7 +131,7 @@
 
 ## Entity
 * lazy loading???
-* call entity method need to set first in controller via paginate array
+* call entity method need to set first in a controller via paginate array
 * magic getset (protected)
     * _set|getPropertyName use multi bytes string
 * hidend field = $_hidden=[]
@@ -151,3 +151,7 @@
     * Layout call and render
     * Send to user
 
+### Element
+* Simple snippets of code can reused not involved with complx logic
+    * Add to element and a folder
+    * call in view by `this->element('folder/snipName',[required args]')`
