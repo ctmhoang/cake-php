@@ -145,6 +145,7 @@
 
 * View Class
     * AppView
+    * viewBuilder()->setClassName
 * Rendering Class
 
 * Cycle
@@ -272,3 +273,11 @@
 * Use mailerAwareTrait
     * getMailer
     * send(methodName,[$data]) (WHY NEED TO WRAP INTO ARRAY :))))
+
+## Plugin
+* bin/cake plugin load ContactManager
+    * change Application.php addPlugin
+* Call View Class (PluginName.ViewClass)
+
+* cake bake plugin NamePl
+* cake bake type Name --plugin NamePl

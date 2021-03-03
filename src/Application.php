@@ -44,6 +44,9 @@ class Application extends BaseApplication
      */
     public function bootstrap(): void
     {
+        $this->addPlugin('UserFind');
+
+        $this->addPlugin('CsvView');
         // Call parent to load bootstrap from files.
         parent::bootstrap();
 

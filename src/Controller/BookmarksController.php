@@ -48,11 +48,15 @@ class BookmarksController extends AppController
         $this->set(compact('bookmarks'));
     }
 
-    public function export(string $limit): void
+    public function export(?string $limit): void
     {
         $limit = $this->Validate->validLimit($limit, 100);
-        $this->set('bookmarks', $this->Bookmarks->find('forUser', ['user_id' => 1])->limit($limit)
-            ->contain(['Tags' => fn(Query $q): Query => $q->where(["Tags.name LIKE" => '%t%'])]));
+        $bookmarks = $this->Bookmarks->find('forUser', ['user_id' => 1])->limit($limit);
+        $this->set('_serialize', 'bookmarks');
+        $this->set('_header', ['Title', 'URL']);
+        $this->set('_extract', ['title', 'url']);
+        $this->viewBuilder()->setClassName('CsvView.Csv');
+        $this->set('bookmarks', $bookmarks);
     }
 
     /**
