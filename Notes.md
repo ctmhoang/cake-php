@@ -255,3 +255,7 @@
 * every | some like any all
 * min | max
 * countBy : Number occurrences of a group of objects
+
+## Logging
+* LogTrait
+* log('string', level, context)

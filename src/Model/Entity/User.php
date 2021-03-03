@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Model\Entity;
 
+use Cake\Log\Log;
+use Cake\Log\LogTrait;
 use Cake\ORM\Entity;
 
 /**
@@ -20,6 +22,8 @@ use Cake\ORM\Entity;
  */
 class User extends Entity
 {
+    use LogTrait;
+
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
      *
@@ -51,5 +55,11 @@ class User extends Entity
     protected function _getName(): string
     {
         return $this->firstname . ' ' . $this->lastname;
+    }
+
+    protected function _setPassword($password)
+    {
+        $this->log('User chaging pwd', 'debug');
+        return $password;
     }
 }
