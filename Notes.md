@@ -281,3 +281,7 @@
 
 * cake bake plugin NamePl
 * cake bake type Name --plugin NamePl
+
+# Unit Testing
+
+* vendor/bin/phpunit
