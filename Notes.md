@@ -259,3 +259,7 @@
 ## Logging
 * LogTrait
 * log('string', level, context)
+
+## Modeless form
+* bake with no crud use --no-action
+* bake form classEntity
