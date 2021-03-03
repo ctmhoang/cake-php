@@ -67,6 +67,7 @@
     * __() i18n method
     * set () => AppView
     * set(para) => varName
+    * this->autoRender = false => not render
 * Pagination
     * init
         * paginate(DS) set to view
@@ -80,6 +81,7 @@
     * default config paginate
         * overwrite `$paginate` array
             * order => ['nameOfAttribute' => ASC|DESC]
+* Method Name 'camel' => url 'dash' -> view 'underscore'
 
 ## Model
 
@@ -241,3 +243,15 @@
     * Hash::format (data, path, format)
     * Hash::check(data,path)
     * Hash::reduce(data,path,fn)
+* Collections
+    *
+
+
+### PHP Collections
+* each == foreach
+* extract path or cb
+* filter($val,$key)
+* reject like filter
+* every | some like any all
+* min | max
+* countBy : Number occurrences of a group of objects
