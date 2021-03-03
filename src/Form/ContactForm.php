@@ -5,6 +5,7 @@ namespace App\Form;
 
 use Cake\Form\Form;
 use Cake\Form\Schema;
+use Cake\Mailer\Mailer;
 use Cake\Validation\Validator;
 
 /**
@@ -34,7 +35,7 @@ class ContactForm extends Form
     public function validationDefault(Validator $validator): Validator
     {
         $validator->notEmptyString('name')
-        ->email('email')->notEmptyString('email');
+            ->email('email')->notEmptyString('email');
 
         return $validator;
     }
@@ -47,6 +48,13 @@ class ContactForm extends Form
      */
     protected function _execute(array $data): bool
     {
+        $mailer = new Mailer();
+        $mailer->setFrom('app@domain.com', 'Bookmarks')
+            ->addTo($data['email'], $data['name'])
+            ->setViewVars(['content' => ['foo', 'bar']])
+            ->viewBuilder()->setTemplate('default')->setLayout('default');
+        $mailer->deliver();
+
         return true;
     }
 }
