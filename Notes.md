@@ -263,3 +263,12 @@
 ## Modeless form
 * bake with no crud use --no-action
 * bake form classEntity
+
+## Mail
+* _execute
+* user Mailer Object and config project to mail
+
+* Bake a mailer
+* Use mailerAwareTrait
+    * getMailer
+    * send(methodName,[$data]) (WHY NEED TO WRAP INTO ARRAY :))))
