@@ -11,7 +11,13 @@ namespace App\Controller;
  */
 class UsersController extends AppController
 {
-        public function login()
+    public function isAuthorized($user)
+    {
+        return $user['email'] == 'jane@localhost.com';
+    }
+
+
+    public function login()
     {
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
