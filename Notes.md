@@ -291,6 +291,15 @@
 * vendor/bin/phpunit
 * fixtures provide test data
     * cake bake fixture Name
-    &* Contains struct and record
+    * Contains struct and record
 * setup method
 * post|get|del method (url,data)
+
+## Auth
+* Setup
+    * load Auth with config
+    * Check if post -> Identify -> setUser -> redirect
+
+* Exception
+    * Before Filter
+    * allow('display')

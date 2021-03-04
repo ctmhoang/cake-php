@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Model\Entity;
 
+use Cake\Auth\DefaultPasswordHasher;
 use Cake\Log\Log;
 use Cake\Log\LogTrait;
 use Cake\ORM\Entity;
@@ -60,6 +61,6 @@ class User extends Entity
     protected function _setPassword($password)
     {
         $this->log('User chaging pwd', 'debug');
-        return $password;
+        return (new DefaultPasswordHasher)->hash($password);
     }
 }
