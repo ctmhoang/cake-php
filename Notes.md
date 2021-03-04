@@ -303,3 +303,13 @@
 * Exception
     * Before Filter
     * allow('display')
+
+* Prefix
+    * Bake with --prefix NamePrefix
+    * Change route.php
+    * Get param -> check prefix is existed ?
+
+* Password
+    * DefaultPasswordHasher -> hash
+
+*

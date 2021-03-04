@@ -80,11 +80,15 @@ $routes->scope('/', function (RouteBuilder $builder) {
  * ```
  * $routes->scope('/api', function (RouteBuilder $builder) {
  *     // No $builder->applyMiddleware() here.
- *     
+ *
  *     // Parse specified extensions from URLs
  *     // $builder->setExtensions(['json', 'xml']);
- *     
+ *
  *     // Connect API actions here.
  * });
  * ```
  */
+\Cake\Routing\Router::prefix('Admin', function ($routes) {
+    $routes->fallbacks('DashedRoute');
+});
+
