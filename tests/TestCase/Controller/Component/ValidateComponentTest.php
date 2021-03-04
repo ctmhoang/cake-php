@@ -42,4 +42,13 @@ class ValidateComponentTest extends TestCase
 
         parent::tearDown();
     }
+
+    public function testValidLimit()
+    {
+        $output = $this->Validate->validLimit(1, 0);
+        self::assertEquals(1, $output);
+        $output = $this->Validate->validLimit('u', 0);
+        self::assertEquals(0, $output);
+    }
+
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Test\TestCase\Controller;
 
 use App\Controller\BookmarksController;
+use App\Model\Table\BookmarksTable;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
@@ -27,6 +28,26 @@ class BookmarksControllerTest extends TestCase
         'app.Tags',
         'app.BookmarksTags',
     ];
+    private \App\Controller\Component\BookmarksComponent|\BookmarksComponent|\Bookmarks|\Cake\ORM\Table|\Cake\Controller\Component\BookmarksComponent|\DebugKit\Controller\Component\BookmarksComponent $Bookmarks;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+        $config = $this->getTableLocator()->exists('Bookmarks') ? [] : ['className' => BookmarksTable::class];
+        $this->Bookmarks = $this->getTableLocator()->get('Bookmarks', $config);
+    }
+
+    /**
+     * tearDown method
+     *
+     * @return void
+     */
+    public function tearDown(): void
+    {
+        unset($this->Bookmarks);
+
+        parent::tearDown();
+    }
 
     /**
      * Test index method
@@ -55,7 +76,11 @@ class BookmarksControllerTest extends TestCase
      */
     public function testAdd(): void
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        $bookmark = ['title' => 'foo', 'url' => 'http://foobar.com', 'user_id' => 1];
+        $this->post('/bookmarks/add', $bookmark);
+        $this->assertRedirect('/bookmarks');
+        $count = $this->Bookmarks->find()->where($bookmark)->count();
+        self::assertEquals(1, $count);
     }
 
     /**

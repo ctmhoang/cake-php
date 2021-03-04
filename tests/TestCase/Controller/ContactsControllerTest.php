@@ -22,6 +22,6 @@ class ContactsControllerTest extends TestCase
      * @var array
      */
     protected $fixtures = [
-        'app.Contacts',
+       // 'app.Contacts',
     ];
 }

@@ -102,4 +102,9 @@ class BookmarksTable extends Table
 
         return $rules;
     }
+
+    public function notUrl($val)
+    {
+        return !Validation::url($val);
+    }
 }

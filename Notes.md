@@ -247,8 +247,8 @@
 * Collections
     *
 
-
 ### PHP Collections
+
 * each == foreach
 * extract path or cb
 * filter($val,$key)
@@ -258,14 +258,17 @@
 * countBy : Number occurrences of a group of objects
 
 ## Logging
+
 * LogTrait
 * log('string', level, context)
 
 ## Modeless form
+
 * bake with no crud use --no-action
 * bake form classEntity
 
 ## Mail
+
 * _execute
 * user Mailer Object and config project to mail
 
@@ -275,6 +278,7 @@
     * send(methodName,[$data]) (WHY NEED TO WRAP INTO ARRAY :))))
 
 ## Plugin
+
 * bin/cake plugin load ContactManager
     * change Application.php addPlugin
 * Call View Class (PluginName.ViewClass)
@@ -285,3 +289,8 @@
 # Unit Testing
 
 * vendor/bin/phpunit
+* fixtures provide test data
+    * cake bake fixture Name
+    &* Contains struct and record
+* setup method
+* post|get|del method (url,data)
